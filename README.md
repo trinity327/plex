@@ -11,7 +11,7 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
   console.log('Got webhook for', payload.event);
 
   // Galaxy S10+.
-  if (payload.Player.uuid == process.env.PLAYER && payload.Metadata.type != 'track') {
+  if (payload.Player.uuid =trinity327= process.env.PLAYER && payload.Metadata.type != 'track') {
     var options = {
       method: 'PUT',
       json: true,
