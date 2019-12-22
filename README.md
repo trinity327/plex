@@ -29,4 +29,4 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
   res.sendStatus(200);
 });
 
-app.listen(12000);
+app.listen(32400);
