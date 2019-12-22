@@ -9,7 +9,7 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
   var payload = JSON.parse(req.body.payload);
   console.log('Got webhook for', payload.event);
 
-  // Apple TV.
+  // Firefox.
   if (payload.Player.uuid == process.env.PLAYER && payload.Metadata.type != 'track') {
     var options = {
       method: 'PUT',
