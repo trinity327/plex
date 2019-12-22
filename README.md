@@ -14,8 +14,7 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
     var options = {
       method: 'PUT',
       json: true,
-      url: 'https://api.kloee.com/api/webhooks/6f32a0f6-b972-4052-99bf-be51129661a4,
-      headers: { 'Authorization': 'Bearer ' + process.env.BEARER }
+      url: 'https://api.kloee.com/api/webhooks/6f32a0f6-b972-4052-99bf-be51129661a4
     };
 
     if (payload.event == 'media.play' || payload.event == 'media.resume') {
