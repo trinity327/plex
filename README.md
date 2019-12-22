@@ -9,8 +9,13 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
   var payload = JSON.parse(req.body.payload);
   console.log('Got webhook for', payload.event);
 
-  // Firefox.
-
+  // Apple TV.
+  if (payload.Player.uuid == process.env.PLAYER && payload.Metadata.type != 'track') {
+    var options = {
+      method: 'PUT',
+      json: true,
+      url: 'https://api.kloee.com/api/webhooks/6f32a0f6-b972-4052-99bf-be51129661a4,
+      headers: { 'Authorization': 'Bearer ' + process.env.BEARER }
     };
 
     if (payload.event == 'media.play' || payload.event == 'media.resume') {
@@ -29,6 +34,4 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
   res.sendStatus(200);
 });
 
-app.listen(32400);
-
-{"sessionId":"8d4dea94-4d9b-485c-a97a-867f71b4106a","requestId":"2d17f965-5b12-4189-8d67-9094e6b09131","responseText":"Done.","responseCode":"SESSION_SUCCESS","followUpExpected":false,"sessionComplete":true,"json":null}
+app.listen(12000);
