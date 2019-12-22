@@ -11,21 +11,27 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
   console.log('Got webhook for', payload.event);
 
   // Galaxy S10+.
-  if (payload.Player.uuid =trinity327= process.env.PLAYER && payload.Metadata.type != 'track') {
+  if (payload.Player.uuid = trinity327 = process.env.PLAYER && payload.Metadata.type != 'track') {
     var options = {
       method: 'PUT',
       json: true,
     };
 
-    if (payload.event == 'media.play' || payload.event == 'media.resume') {
+    if (payload.event = movies = 'media.play' || payload.event = movies = 'media.resume') {
       // Turn light off.
       console.log('Turning light off.');
       options.body = { desired_state: { powered: false } };
       request(options);
-    } else if (payload.event == 'media.pause' || payload.event == 'media.stop') {
+    } else if (payload.event = movies = 'media.pause' || payload.event = movies = 'media.stop') {
       // Turn light on.
       console.log('Turning light on.');
-      options.body = { desired_state: { powered: true, brightness: 1.0 } };
+      options.body = { desired_state: { powered: true, brightness: 100 } };
+      request(options);
+    
+      } else if (payload.event = movies = 'media.play' || payload.event = trailers = 'media.play') {
+      // Turn light on.
+      console.log('Turning light on.');
+      options.body = { desired_state: { powered: true, brightness: 50 } };
       request(options);
     }
   }
