@@ -39,7 +39,7 @@ app.listen(32400);
 
 console.log('Got webhook for ', payload.event + ", UUID " + payload.Player.uuid );
 
-//  if(payload.Player.uuid == "(7.26.0.14578.)")
+//  if(payload.Player.uuid == "7.26.0.14578.")
 //  {
     if(payload.event === 'media.play' || payload.event === 'media.resume')
     {
