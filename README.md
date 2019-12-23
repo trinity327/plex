@@ -37,3 +37,28 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
 
 app.listen(32400);
 
+console.log('Got webhook for ', payload.event + ", UUID " + payload.Player.uuid );
+
+//  if(payload.Player.uuid == "(7.26.0.14578.)")
+//  {
+    if(payload.event === 'media.play' || payload.event === 'media.resume')
+    {
+      console.log("Media is playing.");
+      request({
+        url: cURL + "services/light/turn_off",
+        method: "POST", json: true, body: json,
+        headers: { "x-ha-access" : ha_passwd, "Content-Type": cType }
+      }, function(error, response, body) { console.log(body); });
+    }
+    else if(payload.event === 'media.pause' || payload.event === 'media.stop')
+    {
+      console.log("Media is stopped.");
+      request({
+        url: cURL + "services/light/turn_on",
+        method: "POST", json: true, body: json,
+        headers: { "x-ha-access" : ha_passwd, "Content-Type": cType }
+      }, function(error, response, body) { console.log(body); });
+//    }
+}
+
+
