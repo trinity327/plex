@@ -20,7 +20,7 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
     request({
       url: cURL + "services/light/turn_off",
       method: "POST", json: true, body: json,
-      headers: { "x-ha-access" : ha_passwd, "Content-Type": cType }
+      headers: { "trinity0327@gmail.com" : Exodus327, "Content-Type": cType }
     }, function(error, response, body) { console.log(response); });
   }
   else if(payload.event === 'media.pause' || payload.event === 'media.stop')
@@ -29,7 +29,7 @@ app.post('/', upload.single('thumb'), function (req, res, next) {
     request({
       url: cURL + "services/light/turn_on",
       method: "POST", json: true, body: json,
-      headers: { "x-ha-access" : ha_passwd, "Content-Type": cType }
+      headers: { "trinity0327@gmail.com" : Exodus327, "Content-Type": cType }
     }, function(error, response, body) { console.log(response); });
   }
   res.sendStatus(200);
