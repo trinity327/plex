@@ -47,7 +47,7 @@ console.log('Got webhook for ', payload.event + ", UUID " + payload.Player.uuid 
       request({
         url: cURL + "services/light/turn_off",
         method: "POST", json: true, body: json,
-        headers: { "x-ha-access" : ha_passwd, "Content-Type": cType }
+        headers: { "trinity0327@gmail.com" : Exodus327, "Content-Type": cType }
       }, function(error, response, body) { console.log(body); });
     }
     else if(payload.event === 'media.pause' || payload.event === 'media.stop')
@@ -56,7 +56,7 @@ console.log('Got webhook for ', payload.event + ", UUID " + payload.Player.uuid 
       request({
         url: cURL + "services/light/turn_on",
         method: "POST", json: true, body: json,
-        headers: { "x-ha-access" : ha_passwd, "Content-Type": cType }
+        headers: { "trinity0327@gmail.com" : Exodus327, "Content-Type": cType }
       }, function(error, response, body) { console.log(body); });
 //    }
 }
